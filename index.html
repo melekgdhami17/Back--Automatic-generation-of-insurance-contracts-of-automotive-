@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction</title>
+
+
+<div style="background-image: url('https://static.remove.bg/remove-bg-web/5cc729f2c60683544f035949b665ce17223fd2ec/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png');" >
+</div>
+</head>
+
+<body>
+ <div >
+	<h1 style="text-align:center"> Prediction of an insurance Contract</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" style="width: 50vw;margin-left: 25vw;" >
+        <fieldset style="background-color: aliceblue">
+                <legend><strong><FONT size="5pt" color="blue"> Remplir le formulaire : </FONT></strong> </legend>
+    	<div class="c100">
+                <h3>Saisir Gender</h3>
+                <input type="radio"  id="femme" name ="Gender" value="0" checked/>
+                <label for="femme">FEMME</label>
+                <input type="radio"  id="homme" name ="Gender" value="1" />
+                <label for="homme">HOMME</label>
+             <h3>Saisir Age</h3>
+          <input type="text" name="Age" placeholder="Age" required="required" />
+
+        </div>
+        <div class="c100">
+                <h3>Select Driving_licence</h3>
+                <input type="radio"  id="yes" name ="Driving_License" value="1" />
+                <label for="yes">YES</label>
+                <input type="radio"  id="no" name ="Driving_License" value="0" checked/>
+                <label for="no">NO</label>
+            </div>
+            
+
+
+                <div class="c100">
+                <h3>Select Previously_Insured</h3>
+                <input type="checkbox"  id="yes" name ="Previously_Insured" value="1" />
+                <label for="yes">YES</label>
+                <input type="checkbox"  id="no" name ="Previously_Insured" value="0" />
+                <label for="no">NO</label>
+
+            </div>
+
+            <div class="c100">
+                <h3>Saisir Vehicle_Age</h3>
+                <select id="vehicule_age" name ="Vehicle_Age">
+                <option value="3"> --- </option>
+                <option value="1"> less then 1 Year </option>
+                <option value="0"> between 1-2 Year </option>
+                 <option value="2"> more then 2 Year </option>
+                </select>
+
+            </div>
+
+        <div class="c100">
+                <h3>Select Vehicle_Damage</h3>
+                <input type="radio"  id="yes" name ="Vehicle_Damage" value="1" />
+                <label for="yes">YES</label>
+                <input type="radio"  id="no" name ="Vehicle_Damage" value="0" checked/>
+                <label for="no">NO</label>
+            </div>
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+
+
+   <br>
+   <br>
+
+{{ prediction_text }}
+       </fieldset >
+        </form>
+ </div>
+
+
+</body>
+</html>
